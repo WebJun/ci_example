@@ -83,3 +83,14 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+//200227
+define('SUB_URL',str_replace('\\','',preg_replace('@/+$@','',dirname($_SERVER['SCRIPT_NAME']))));
+
+define('SITE_NAME',$_SERVER['HTTP_HOST'].SUB_URL);	
+
+if($_SERVER['SERVER_PORT']==443){
+	define('BASE_URL','https://'.SITE_NAME);
+}else{
+	define('BASE_URL','http://'.SITE_NAME);
+}
