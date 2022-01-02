@@ -6,8 +6,9 @@ class MY_Controller extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->driver('cache', array('adapter' => 'file', 'backup' => 'file'));
+        //$this->load->driver('cache', ['adapter' => 'file', 'backup' => 'file']);
         $this->load->model('main_model');
+        $this->load->model('lists_model');
     }
 
     function head()

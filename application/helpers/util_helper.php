@@ -12,7 +12,6 @@ function left($string, $count)
 }
 
 //문자열 사이에 있는 문자를 추출하는 함수
-//extraxtText("[test]", "[", "]") == "test"
 function extraxtText($book, $text1, $text2, $n = 1, $m = 1)
 {
     $temp1 = 1;
@@ -49,13 +48,13 @@ function getFileSize($size, $float = 0)
 //외부 파일을 내부 서버에 저장하는 함수 성공시 1 실패시 false 반환
 function copyByCurl($localpath, $outsideUrl)
 {
-    $fp = fopen($localpath, "w");
+    $fp = fopen($localpath, 'w');
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $outsideUrl);
     curl_setopt($ch, CURLOPT_HEADER, 0);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)");
+    curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)');
     curl_setopt($ch, CURLOPT_FILE, $fp);
 
     $result = curl_exec($ch);
@@ -82,7 +81,7 @@ function getHttpStatus200($url = null)
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_HEADER         => true,
         CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_ENCODING       => "",
+        CURLOPT_ENCODING       => '',
         CURLOPT_AUTOREFERER    => true,
         CURLOPT_CONNECTTIMEOUT => 120,
         CURLOPT_TIMEOUT        => 120,
@@ -90,10 +89,10 @@ function getHttpStatus200($url = null)
     );
     curl_setopt_array($ch, $options);
     $response = curl_exec($ch);
-    $result["code"] = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    $result["url"] = curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
-    if (substr($result["url"], 0, 4) == 'HTTP') {
-        $result["url"] = 'http' . substr($result["url"], 4); //소문자변환
+    $result['code'] = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $result['url'] = curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
+    if (substr($result['url'], 0, 4) == 'HTTP') {
+        $result['url'] = 'http' . substr($result['url'], 4); //소문자변환
     }
     curl_close($ch);
 
@@ -109,7 +108,7 @@ function dirsize($dir)
     }
     $fp = opendir($dir);
     while (false !== ($entry = readdir($fp))) {
-        if (($entry != ".") && ($entry != "..")) {
+        if (($entry != '.') && ($entry != '..')) {
             if (is_dir($dir . '/' . $entry)) {
                 clearstatcache();
                 dirsize($dir . '/' . $entry);
@@ -136,17 +135,17 @@ function print_r2($var)
     print_r($var);
     $str = ob_get_contents();
     ob_end_clean();
-    $str = str_replace(" ", "&nbsp;", $str);
-    echo nl2br("<span style='font-family:Tahoma, 굴림; font-size:9pt;'>$str</span>");
+    $str = str_replace(' ', '&nbsp;', $str);
+    echo nl2br("<span style=\"font-family:Tahoma, 굴림; font-size:9pt;\">{$str}</span>");
 }
 
 //191125
 //현재시간을 초를 소숫점아래 6자리까지 구함
 function exactTime()
 {
-    $time = explode(" ", microtime());
-    $time = explode(".", $time[0]);
-    $time = substr(date("YmdHis") . $time[1], 0, 20);
+    $time = explode(' ', microtime());
+    $time = explode('.', $time[0]);
+    $time = substr(date('YmdHis') . $time[1], 0, 20);
     return $time;
 }
 

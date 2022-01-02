@@ -52,7 +52,7 @@ class Lists_model extends CI_Model
         }
         $this->pages['tot_cnt'] = $this->db->count_all_results($this->from);
         $this->pages['c'] = intval($this->page); //현재페이지
-        $this->pages['cnt'] = CEIL($this->pages['tot_cnt'] / $this->limit_size); //페이지의 총 수
+        $this->pages['cnt'] = ceil($this->pages['tot_cnt'] / $this->limit_size); //페이지의 총 수
         if ($this->pages['c'] < 1) $this->pages['c'] = 1; //가장 작은 페이지 : 1
         if ($this->pages['c'] > $this->pages['cnt']) $this->pages['c'] = $this->pages['cnt']; //가장 큰 페이지 : 페이지수
         $this->pages['s'] = max($this->pages['c'] - $this->more_page, 1); //블럭의 시작페이지번호

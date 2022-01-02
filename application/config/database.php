@@ -74,12 +74,12 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'dsn'      => '',
+	'hostname' => '',
 	'username' => '',
 	'password' => '',
-	'database' => '',
-	'dbdriver' => 'mysqli',
+	'database' => 'database.sqlite3',
+	'dbdriver' => 'sqlite3',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),

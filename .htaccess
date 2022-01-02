@@ -6,6 +6,6 @@
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^(.*)$ /index.php/$1 [L]
 </IfModule>
-# SetEnv CI_ENV development
+SetEnv CI_ENV development
 # SetEnv CI_ENV testing
-SetEnv CI_ENV production
+# SetEnv CI_ENV production
