@@ -42,57 +42,57 @@ table thead td {font-weight:bold;}
 </style>
 
 <div class="container" style="margin-top:30px;">
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<td>seq</td>
-				<td>title</td>
-				<td>content</td>
-			</tr>
-		</thead>
-		<tbody>
-		<?php foreach ($items as $item): ?>
-			<tr>
-				<td><?=$item['seq']?></td>
-				<td><?=$item['title']?></td>
-				<td><?=$item['content']?></td>
-			</tr>
-		<?php endforeach ?>
-		</tbody>
-	</table>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>seq</td>
+                <td>title</td>
+                <td>content</td>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($items as $item): ?>
+            <tr>
+                <td><?=$item['seq']?></td>
+                <td><?=$item['title']?></td>
+                <td><?=$item['content']?></td>
+            </tr>
+        <?php endforeach ?>
+        </tbody>
+    </table>
 
 
 
-	
-	<div style="text-align:center;">
-		<ul class="pagination justify-content-center">
-			<li class="page-item">
-				<a class="page-link" href="/?page=<?=$pages['p']?>">
-					Previous
-				</a>
-			</li>
+    
+    <div style="text-align:center;">
+        <ul class="pagination justify-content-center">
+            <li class="page-item">
+                <a class="page-link" href="/?page=<?=$pages['p']?>">
+                    Previous
+                </a>
+            </li>
 
-			<?php for ($i = $pages['s']; $i <= $pages['e']; $i++ ): ?>
-				<li class="page-item <?php if ($pages['c'] === $i) echo 'active' ;?>">
-					<a class="page-link" href="/?page=<?=$i?>">
-						<?=$i?>
-					</a>
-				</li>
-			<?php endfor ?>
+            <?php for ($i = $pages['s']; $i <= $pages['e']; $i++ ): ?>
+                <li class="page-item <?php if ($pages['c'] === $i) echo 'active' ;?>">
+                    <a class="page-link" href="/?page=<?=$i?>">
+                        <?=$i?>
+                    </a>
+                </li>
+            <?php endfor ?>
 
-			<li class="page-item">
-				<a class="page-link" href="/?page=<?=$pages['n']?>">
-					Next
-				</a>
-			</li>
-		</ul>
-	</div>
+            <li class="page-item">
+                <a class="page-link" href="/?page=<?=$pages['n']?>">
+                    Next
+                </a>
+            </li>
+        </ul>
+    </div>
 
-	<div style="text-align:right; margin-top:10px; ">
-		<a href="<?=BASE_URL?>/main/add">
-			<button class="btn btn-sm btn-success">글쓰기</button>
-		</a>
-	</div>
+    <div style="text-align:right; margin-top:10px; ">
+        <a href="<?=BASE_URL?>/main/add">
+            <button class="btn btn-sm btn-success">글쓰기</button>
+        </a>
+    </div>
 </div>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>

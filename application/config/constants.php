@@ -90,7 +90,7 @@ define('SUB_URL',str_replace('\\','',preg_replace('@/+$@','',dirname($_SERVER['S
 define('SITE_NAME',$_SERVER['HTTP_HOST'].SUB_URL);	
 
 if($_SERVER['SERVER_PORT']==443){
-	define('BASE_URL','https://'.SITE_NAME);
+    define('BASE_URL','https://'.SITE_NAME);
 }else{
-	define('BASE_URL','http://'.SITE_NAME);
+    define('BASE_URL','http://'.SITE_NAME);
 }
