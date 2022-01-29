@@ -89,6 +89,17 @@ class CI_Exceptions {
 	// --------------------------------------------------------------------
 
 	/**
+	 * @author heojun
+	 * @desc 에러 메소드 실행시 거쳐야 됨
+	 */
+	private function pre_method()
+	{
+		// 보안을 위해 error시 모두 404만 보여줌
+		require_once 'error_404.php';
+		exit;
+	}
+
+	/**
 	 * Exception Logger
 	 *
 	 * Logs PHP generated error messages
@@ -118,6 +129,7 @@ class CI_Exceptions {
 	 */
 	public function show_404($page = '', $log_error = TRUE)
 	{
+		$this->pre_method();
 		if (is_cli())
 		{
 			$heading = 'Not Found';
@@ -156,6 +168,7 @@ class CI_Exceptions {
 	 */
 	public function show_error($heading, $message, $template = 'error_general', $status_code = 500)
 	{
+		$this->pre_method();
 		$templates_path = config_item('error_views_path');
 		if (empty($templates_path))
 		{
@@ -189,6 +202,7 @@ class CI_Exceptions {
 
 	public function show_exception($exception)
 	{
+		$this->pre_method();
 		$templates_path = config_item('error_views_path');
 		if (empty($templates_path))
 		{
@@ -235,6 +249,7 @@ class CI_Exceptions {
 	 */
 	public function show_php_error($severity, $message, $filepath, $line)
 	{
+		$this->pre_method();
 		$templates_path = config_item('error_views_path');
 		if (empty($templates_path))
 		{

@@ -1,3 +1,7 @@
+SetEnv CI_ENV development
+# SetEnv CI_ENV testing
+# SetEnv CI_ENV production
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -6,6 +10,12 @@
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^(.*)$ index.php/$1 [L]
 </IfModule>
-SetEnv CI_ENV development
-# SetEnv CI_ENV testing
-# SetEnv CI_ENV production
+
+# 220129
+ErrorDocument 400 /error_404.php
+ErrorDocument 401 /error_404.php
+ErrorDocument 403 /error_404.php
+ErrorDocument 404 /error_404.php
+ErrorDocument 405 /error_404.php
+ErrorDocument 500 /error_404.php
+ErrorDocument 501 /error_404.php
